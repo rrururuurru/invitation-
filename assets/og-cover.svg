@@ -1,0 +1,9 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#FCF7F1"/>
+  <circle cx="1018" cy="146" r="170" fill="#EAD7CB"/>
+  <circle cx="172" cy="526" r="180" fill="#F2E3D8"/>
+  <rect x="122" y="88" width="956" height="454" rx="38" fill="#FFFDFC" stroke="#E6D3C7" stroke-width="3"/>
+  <text x="600" y="222" text-anchor="middle" fill="#946E5B" font-family="Georgia, serif" font-size="42">Свадебное приглашение</text>
+  <text x="600" y="330" text-anchor="middle" fill="#5A4740" font-family="Georgia, serif" font-size="88">Азат &amp; Аружан</text>
+  <text x="600" y="406" text-anchor="middle" fill="#87685A" font-family="Arial, sans-serif" font-size="34">25 августа 2026 • 18:00 • Астана</text>
+</svg>

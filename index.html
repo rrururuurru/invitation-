@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Азат &amp; Аружан | Свадебное приглашение</title>
+  <meta name="description" content="Свадебное приглашение Азата и Аружан. 25 августа 2026 года, 18:00, Астана. Детали вечера, программа, дресс-код и подтверждение присутствия.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="Азат &amp; Аружан | Свадебное приглашение">
+  <meta property="og:description" content="Будем счастливы разделить с вами наш особенный вечер. 25 августа 2026 года, 18:00, Астана.">
+  <meta property="og:image" content="./assets/og-cover.svg">
+  <meta property="og:image:alt" content="Свадебное приглашение Азат и Аружан">
+  <meta property="og:url" content="https://username.github.io/repository/">
+  <meta name="theme-color" content="#f3e8df">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="page-glow page-glow-left"></div>
+  <div class="page-glow page-glow-right"></div>
+
+  <button class="music-toggle" type="button" aria-pressed="false" aria-label="Включить музыку">
+    <span class="music-toggle__dot"></span>
+    <span class="music-toggle__label">Музыка</span>
+  </button>
+  <audio id="wedding-audio" preload="none" loop></audio>
+
+  <main>
+    <section class="hero section" id="hero">
+      <div class="hero__ornament hero__ornament--top" data-parallax="0.16"></div>
+      <div class="hero__ornament hero__ornament--bottom" data-parallax="0.1"></div>
+
+      <div class="container">
+        <div class="hero__card reveal" data-parallax="0.08">
+          <p class="eyebrow">Свадебное приглашение</p>
+          <h1>Азат <span>&amp;</span> Аружан</h1>
+          <p class="hero__lead">Приглашаем вас разделить с нами день, в котором любовь станет семейной историей.</p>
+
+          <div class="hero__meta">
+            <div class="meta-card">
+              <span class="meta-card__label">Дата</span>
+              <strong>25 августа 2026</strong>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Время</span>
+              <strong>18:00</strong>
+            </div>
+            <div class="meta-card">
+              <span class="meta-card__label">Город</span>
+              <strong>Астана</strong>
+            </div>
+          </div>
+
+          <div class="hero__actions">
+            <a class="button button--primary" href="#rsvp">Подтвердить присутствие</a>
+            <a class="button button--ghost" href="#details">Смотреть детали</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="invitation">
+      <div class="container narrow">
+        <p class="section-tag">Приглашение</p>
+        <h2 class="section-title">Будем счастливы видеть вас рядом в один из самых важных вечеров нашей жизни</h2>
+        <div class="invitation-card">
+          <p>
+            С любовью и трепетом приглашаем вас стать частью нашего свадебного торжества.
+            Для нас особенно ценно разделить этот день с теми, кто наполняет жизнь теплом, поддержкой и искренними улыбками.
+          </p>
+          <p>
+            Пусть этот вечер станет красивым воспоминанием, собранным из душевных встреч, добрых слов и счастливых моментов.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="details">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-tag">Детали</p>
+          <h2 class="section-title">Когда и где мы встречаемся</h2>
+        </div>
+
+        <div class="details-grid">
+          <article class="info-card reveal">
+            <span class="info-card__kicker">Дата и время</span>
+            <h3>25 августа 2026, 18:00</h3>
+            <p>Пожалуйста, приходите за 15-20 минут до начала, чтобы спокойно занять места и настроиться на вечер.</p>
+          </article>
+
+          <article class="info-card reveal">
+            <span class="info-card__kicker">Локация</span>
+            <h3>Астана</h3>
+            <p>Точный адрес банкетного зала можно указать здесь после финального подтверждения площадки.</p>
+            <a class="text-link" href="https://2gis.kz/astana" target="_blank" rel="noopener noreferrer">Открыть карту</a>
+          </article>
+
+          <article class="info-card reveal">
+            <span class="info-card__kicker">Формат вечера</span>
+            <h3>Тёплый семейный праздник</h3>
+            <p>Вас ждут церемония, ужин, музыка, танцы и спокойная эстетика вечера без лишней суеты.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--accent" id="countdown">
+      <div class="container narrow">
+        <div class="section-head reveal center">
+          <p class="section-tag">Таймер</p>
+          <h2 class="section-title">До нашей встречи осталось</h2>
+        </div>
+
+        <div class="countdown reveal" aria-live="polite">
+          <div class="countdown__item">
+            <span class="countdown__value" data-unit="days">0</span>
+            <span class="countdown__label">дней</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__value" data-unit="hours">0</span>
+            <span class="countdown__label">часов</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__value" data-unit="minutes">0</span>
+            <span class="countdown__label">минут</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__value" data-unit="seconds">0</span>
+            <span class="countdown__label">секунд</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="program">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-tag">Программа вечера</p>
+          <h2 class="section-title">Неспешный ритм красивого праздника</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline__item reveal">
+            <span class="timeline__time">17:30</span>
+            <div class="timeline__content">
+              <h3>Сбор гостей</h3>
+              <p>Лёгкая встреча, приветственные объятия и первые тёплые разговоры.</p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <span class="timeline__time">18:00</span>
+            <div class="timeline__content">
+              <h3>Начало торжества</h3>
+              <p>Главный момент вечера, с которого начинается наша новая семейная глава.</p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <span class="timeline__time">19:00</span>
+            <div class="timeline__content">
+              <h3>Праздничный ужин</h3>
+              <p>Уютная атмосфера, музыка, поздравления и совместные тосты.</p>
+            </div>
+          </article>
+
+          <article class="timeline__item reveal">
+            <span class="timeline__time">20:30</span>
+            <div class="timeline__content">
+              <h3>Танцы и вечерняя программа</h3>
+              <p>Красивые эмоции, любимые мелодии и искреннее веселье вместе с близкими.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dresscode">
+      <div class="container">
+        <div class="dresscode reveal">
+          <div>
+            <p class="section-tag">Дресс-код</p>
+            <h2 class="section-title">Будем рады, если вы поддержите палитру вечера</h2>
+            <p class="section-text">Нежные, спокойные и светлые оттенки идеально дополнят атмосферу праздника: молочный, бежевый, пудровый, песочный, тёплый серо-розовый.</p>
+          </div>
+
+          <div class="palette" aria-label="Палитра дресс-кода">
+            <span style="--swatch:#f7f2ec;"></span>
+            <span style="--swatch:#e8d8c8;"></span>
+            <span style="--swatch:#dcbeb6;"></span>
+            <span style="--swatch:#cfa08c;"></span>
+            <span style="--swatch:#b98c74;"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="section-tag">Галерея</p>
+          <h2 class="section-title">Моменты, наполненные светом и ожиданием</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-card reveal"><img src="./assets/gallery-1.svg" alt="Фото пары 1"></figure>
+          <figure class="gallery-card reveal gallery-card--tall"><img src="./assets/gallery-2.svg" alt="Фото пары 2"></figure>
+          <figure class="gallery-card reveal"><img src="./assets/gallery-3.svg" alt="Фото пары 3"></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--accent" id="rsvp">
+      <div class="container narrow">
+        <div class="section-head reveal center">
+          <p class="section-tag">Подтверждение</p>
+          <h2 class="section-title">Подтвердите, пожалуйста, ваше присутствие</h2>
+          <p class="section-text">Форма подготовит сообщение и откроет WhatsApp без сервера и лишних шагов.</p>
+        </div>
+
+        <form class="rsvp-form reveal" id="rsvp-form">
+          <label>
+            <span>Ваше имя</span>
+            <input type="text" name="guestName" placeholder="Например, Айгерим" required>
+          </label>
+
+          <label>
+            <span>Сможете присутствовать?</span>
+            <select name="attendance" required>
+              <option value="С радостью приду">С радостью приду</option>
+              <option value="Буду с парой">Буду с парой</option>
+              <option value="К сожалению, не смогу">К сожалению, не смогу</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Комментарий</span>
+            <textarea name="comment" rows="4" placeholder="При желании можно оставить пожелание или уточнение"></textarea>
+          </label>
+
+          <button class="button button--primary button--full" type="submit">Отправить через WhatsApp</button>
+          <p class="form-note">Перед публикацией замените номер WhatsApp в `script.js` на ваш реальный номер.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>

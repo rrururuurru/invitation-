@@ -1,0 +1,10 @@
+<svg width="800" height="900" viewBox="0 0 800 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="900" rx="36" fill="#F7EFE8"/>
+  <circle cx="610" cy="180" r="130" fill="#E7D4C7" fill-opacity="0.85"/>
+  <circle cx="160" cy="710" r="150" fill="#F2E5DB"/>
+  <path d="M226 490C277.5 406.5 355 365 415 365C484 365 561 417.5 602 490" stroke="#C79B84" stroke-width="7" stroke-linecap="round"/>
+  <path d="M294 474C294 474 330 418 400 418C470 418 506 474 506 474" stroke="#B98C74" stroke-width="7" stroke-linecap="round"/>
+  <path d="M226 600C297 649 500 649 574 600" stroke="#C79B84" stroke-width="7" stroke-linecap="round"/>
+  <text x="400" y="190" text-anchor="middle" fill="#8A6758" font-family="Georgia, serif" font-size="50">Ваше фото</text>
+  <text x="400" y="250" text-anchor="middle" fill="#AA7D68" font-family="Arial, sans-serif" font-size="24">замените на реальный кадр пары</text>
+</svg>
