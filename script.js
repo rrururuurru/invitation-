@@ -1,7 +1,7 @@
 const weddingDate = new Date(2026, 7, 25, 18, 0, 0);
 const whatsappNumber = "77000000000";
 const mapLink = "https://2gis.kz/astana";
-const musicFile = "./assets/music.mp3";
+const musicFile = "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
 
 const countdownValues = {
   days: document.querySelector('[data-unit="days"]'),
@@ -18,6 +18,7 @@ const toast = document.getElementById("toast");
 const progressBar = document.getElementById("scroll-progress");
 const mapLinkElement = document.querySelector('#details .text-link');
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const musicIcon = document.querySelector(".music-toggle__icon");
 
 let toastTimer = null;
 let isTicking = false;
@@ -100,9 +101,17 @@ function onScroll() {
 
 function setupMusic() {
   audio.src = musicFile;
+  audio.preload = "metadata";
 
   audio.addEventListener("error", () => {
     audio.removeAttribute("src");
+  });
+
+  audio.addEventListener("ended", () => {
+    musicToggle.classList.remove("is-playing");
+    musicToggle.setAttribute("aria-pressed", "false");
+    musicToggle.setAttribute("aria-label", "Включить музыку");
+    musicIcon.textContent = "▶";
   });
 
   musicToggle.addEventListener("click", async () => {
@@ -117,6 +126,7 @@ function setupMusic() {
         musicToggle.classList.add("is-playing");
         musicToggle.setAttribute("aria-pressed", "true");
         musicToggle.setAttribute("aria-label", "Пауза музыки");
+        musicIcon.textContent = "❚❚";
       } catch (error) {
         showToast("Не удалось включить музыку");
       }
@@ -127,6 +137,7 @@ function setupMusic() {
     musicToggle.classList.remove("is-playing");
     musicToggle.setAttribute("aria-pressed", "false");
     musicToggle.setAttribute("aria-label", "Включить музыку");
+    musicIcon.textContent = "▶";
   });
 }
 

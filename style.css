@@ -85,32 +85,51 @@ textarea {
 
 .music-toggle {
   position: fixed;
-  top: 14px;
-  right: 14px;
+  right: 16px;
+  bottom: 16px;
   z-index: 70;
-  display: inline-flex;
+  display: grid;
+  place-items: center;
   align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  padding: 0 14px;
-  border: 1px solid rgba(213, 167, 109, 0.24);
-  border-radius: 999px;
-  background: rgba(255, 249, 244, 0.9);
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border: 1px solid rgba(213, 167, 109, 0.28);
+  border-radius: 50%;
+  background: linear-gradient(180deg, rgba(255, 250, 246, 0.9), rgba(249, 232, 235, 0.92));
   color: var(--text);
   box-shadow: var(--shadow-soft);
-  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease;
+  backdrop-filter: blur(8px);
+  transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
-.music-toggle__dot {
-  width: 10px;
-  height: 10px;
+.music-toggle__halo {
+  position: absolute;
+  inset: -6px;
   border-radius: 50%;
-  background: rgba(215, 134, 143, 0.44);
+  border: 1px solid rgba(215, 134, 143, 0.18);
+  opacity: 0;
+  transform: scale(0.92);
 }
 
-.music-toggle.is-playing .music-toggle__dot {
-  background: var(--accent);
+.music-toggle__icon {
+  position: relative;
+  z-index: 1;
+  font-size: 1.12rem;
+  line-height: 1;
+}
+
+.music-toggle.is-playing {
+  box-shadow: 0 14px 30px rgba(207, 116, 130, 0.2);
+}
+
+.music-toggle.is-playing .music-toggle__icon {
   animation: pulse 1.7s infinite;
+}
+
+.music-toggle.is-playing .music-toggle__halo {
+  opacity: 1;
+  animation: musicHalo 4s linear infinite;
 }
 
 .section {
@@ -930,6 +949,16 @@ textarea {
   0% { box-shadow: 0 0 0 0 rgba(215, 134, 143, 0.35); }
   70% { box-shadow: 0 0 0 10px rgba(215, 134, 143, 0); }
   100% { box-shadow: 0 0 0 0 rgba(215, 134, 143, 0); }
+}
+
+@keyframes musicHalo {
+  from {
+    transform: scale(0.92) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.04) rotate(360deg);
+  }
 }
 
 @media (min-width: 760px) {
