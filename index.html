@@ -31,6 +31,8 @@
     <section class="hero" id="hero">
       <div class="hero__glow hero__glow--rose"></div>
       <div class="hero__glow hero__glow--gold"></div>
+      <div class="hero__ring hero__ring--left" aria-hidden="true"></div>
+      <div class="hero__ring hero__ring--right" aria-hidden="true"></div>
       <div class="hero__petals" aria-hidden="true">
         <span></span>
         <span></span>
@@ -41,6 +43,8 @@
 
       <div class="container hero__frame">
         <div class="hero__media reveal reveal--hero">
+          <div class="hero__frame-line hero__frame-line--top"></div>
+          <div class="hero__frame-line hero__frame-line--bottom"></div>
           <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80" alt="Свадебная пара в тёплом свете" width="1200" height="1600">
           <div class="hero__overlay"></div>
         </div>
@@ -51,6 +55,7 @@
           <h1>Азат <span>&amp;</span> Аружан</h1>
           <p class="hero__script">С нежностью приглашаем вас стать частью вечера, где любовь станет нашим домом</p>
           <p class="hero__lead">В этот день нам особенно важно быть рядом с теми, кто умеет делить радость искренне, тепло и от сердца.</p>
+          <div class="hero__divider" aria-hidden="true"></div>
 
           <div class="hero__actions">
             <a class="button button--primary" href="#invitation">Открыть приглашение</a>
@@ -63,6 +68,7 @@
     <section class="section section--intro" id="invitation">
       <div class="container invitation-layout">
         <div class="invitation-copy reveal">
+          <div class="section-divider" aria-hidden="true"></div>
           <div class="section-head">
             <p class="section-tag">Приглашение</p>
             <h2 class="section-title">Дорогие гости, будем счастливы разделить этот день вместе с вами</h2>
@@ -78,12 +84,14 @@
           <div class="quote-card__line"></div>
           <p class="quote-card__text">"Любовь делает мгновения вечными, когда рядом самые дорогие люди"</p>
           <span class="quote-card__sign">25 августа 2026</span>
+          <div class="quote-card__flower" aria-hidden="true"></div>
         </aside>
       </div>
     </section>
 
     <section class="section section--details" id="details">
       <div class="container">
+        <div class="section-divider section-divider--center" aria-hidden="true"></div>
         <div class="section-head reveal section-head--center">
           <p class="section-tag">Детали торжества</p>
           <h2 class="section-title">Красивый вечер, продуманный до нежных деталей</h2>
@@ -128,6 +136,7 @@
     <section class="section section--countdown" id="countdown">
       <div class="container countdown-shell">
         <div class="countdown-copy reveal">
+          <div class="section-divider" aria-hidden="true"></div>
           <p class="section-tag">До свадьбы осталось</p>
           <h2 class="section-title">Считаем дни до самого дорогого вечера нашей жизни</h2>
           <p class="section-text">Совсем скоро настанет день, который мы будем вспоминать с особым трепетом. До встречи в Астане 25 августа 2026 года в 18:00.</p>
@@ -157,6 +166,7 @@
     <section class="section section--program" id="program">
       <div class="container program-layout">
         <div class="program-copy reveal">
+          <div class="section-divider" aria-hidden="true"></div>
           <p class="section-tag">Программа вечера</p>
           <h2 class="section-title">Неспешный ритм красивого праздника</h2>
           <p class="section-text">Вечер задуман так, чтобы в нём было место и торжественности, и уюту, и лёгкости. Пусть каждая часть праздника звучит гармонично.</p>
@@ -199,9 +209,11 @@
       <div class="container dresscode-layout">
         <div class="dresscode-photo reveal">
           <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1000&q=80" alt="Невеста в белом платье с букетом" loading="lazy" width="1000" height="1250">
+          <div class="dresscode-photo__overlay"></div>
         </div>
 
         <div class="dresscode-card reveal">
+          <div class="section-divider" aria-hidden="true"></div>
           <p class="section-tag">Дресс-код</p>
           <h2 class="section-title">Будем рады, если ваши образы поддержат палитру нашего вечера</h2>
           <p class="section-text">Лучше всего в атмосфере праздника будут смотреться светлые, тёплые и мягкие оттенки. Они красиво объединят пространство, фотографии и настроение дня.</p>
@@ -219,6 +231,7 @@
     <section class="section section--gallery" id="gallery">
       <div class="container">
         <div class="section-head section-head--center reveal">
+          <div class="section-divider section-divider--center" aria-hidden="true"></div>
           <p class="section-tag">Галерея</p>
           <h2 class="section-title">Образы, детали и настроение нашего дня</h2>
         </div>
@@ -226,27 +239,27 @@
         <div class="gallery-grid">
           <figure class="gallery-card gallery-card--hero reveal">
             <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1000&q=80" alt="Свадебная пара на прогулке" loading="lazy" width="1000" height="760">
-            <figcaption>Нежность в каждом взгляде</figcaption>
+            <figcaption><span>Нежность в каждом взгляде</span></figcaption>
           </figure>
 
           <figure class="gallery-card gallery-card--tall reveal">
             <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80" alt="Невеста в белом платье" loading="lazy" width="900" height="1200">
-            <figcaption>Лёгкость, свет и белое платье</figcaption>
+            <figcaption><span>Лёгкость, свет и белое платье</span></figcaption>
           </figure>
 
           <figure class="gallery-card reveal">
             <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80" alt="Свадебный стол с цветами и свечами" loading="lazy" width="900" height="900">
-            <figcaption>Декор, свечи и атмосфера вечера</figcaption>
+            <figcaption><span>Декор, свечи и атмосфера вечера</span></figcaption>
           </figure>
 
           <figure class="gallery-card reveal">
             <img src="https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=900&q=80" alt="Свадебные кольца и букет" loading="lazy" width="900" height="900">
-            <figcaption>Кольца, цветы и маленькие символы большого дня</figcaption>
+            <figcaption><span>Кольца, цветы и маленькие символы большого дня</span></figcaption>
           </figure>
 
           <figure class="gallery-card gallery-card--wide reveal">
             <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Пара в свадебный день" loading="lazy" width="1000" height="700">
-            <figcaption>Тепло, к которому хочется возвращаться</figcaption>
+            <figcaption><span>Тепло, к которому хочется возвращаться</span></figcaption>
           </figure>
         </div>
       </div>
@@ -255,6 +268,7 @@
     <section class="section section--rsvp" id="rsvp">
       <div class="container rsvp-layout">
         <div class="rsvp-side reveal">
+          <div class="section-divider" aria-hidden="true"></div>
           <p class="section-tag">Подтверждение участия</p>
           <h2 class="section-title">Пожалуйста, сообщите нам ваш ответ</h2>
           <p class="section-text">Мы будем признательны, если вы заранее дадите знать, сможете ли присоединиться к нашему празднику. Сообщение откроется в WhatsApp сразу после отправки формы.</p>
