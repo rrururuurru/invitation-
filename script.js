@@ -1,4 +1,4 @@
-const weddingDate = new Date(Date.UTC(2026, 7, 25, 13, 0, 0));
+const weddingDate = new Date(2026, 7, 25, 18, 0, 0);
 const whatsappNumber = "77000000000";
 const mapLink = "https://2gis.kz/astana";
 const musicFile = "./assets/music.mp3";
@@ -107,7 +107,7 @@ function setupMusic() {
 
   musicToggle.addEventListener("click", async () => {
     if (!audio.getAttribute("src")) {
-      showToast("Добавьте файл assets/music.mp3 для фоновой музыки");
+      showToast("Музыкальный файл пока недоступен");
       return;
     }
 
@@ -118,7 +118,7 @@ function setupMusic() {
         musicToggle.setAttribute("aria-pressed", "true");
         musicToggle.setAttribute("aria-label", "Пауза музыки");
       } catch (error) {
-        showToast("Не удалось включить музыку. Проверьте файл assets/music.mp3");
+        showToast("Не удалось включить музыку");
       }
       return;
     }
@@ -151,7 +151,6 @@ function setupRsvpForm() {
 
     const message = encodeURIComponent(messageParts.join("\n"));
     const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-
     window.open(url, "_blank", "noopener");
   });
 }
