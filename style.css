@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
   color: var(--text);
-  font-family: "Manrope", sans-serif;
+  font-family: "Inter", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   background:
@@ -272,6 +272,9 @@ textarea {
   display: grid;
   place-items: center;
   overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(244, 212, 219, 0.26), transparent 24%),
+    radial-gradient(circle at 86% 14%, rgba(236, 210, 167, 0.22), transparent 18%);
 }
 
 .hero__media,
@@ -297,8 +300,9 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 20% 18%, rgba(255, 231, 220, 0.2), transparent 20%),
-    linear-gradient(180deg, rgba(44, 25, 18, 0.18), rgba(44, 25, 18, 0.54) 52%, rgba(44, 25, 18, 0.76) 100%);
+    radial-gradient(circle at 18% 20%, rgba(255, 226, 214, 0.22), transparent 18%),
+    linear-gradient(180deg, rgba(44, 25, 18, 0.16), rgba(44, 25, 18, 0.5) 48%, rgba(44, 25, 18, 0.78) 100%),
+    linear-gradient(90deg, rgba(55, 31, 22, 0.32), rgba(55, 31, 22, 0.08) 60%, rgba(55, 31, 22, 0.26));
 }
 
 .hero__content {
@@ -308,6 +312,7 @@ textarea {
   margin: 0 auto;
   text-align: center;
   color: #fff8f4;
+  text-shadow: 0 10px 24px rgba(32, 16, 11, 0.18);
 }
 
 .hero h1 {
@@ -315,17 +320,18 @@ textarea {
   margin-left: auto;
   font-size: clamp(3rem, 12vw, 6.4rem);
   line-height: 1.04;
-  text-shadow: 0 8px 24px rgba(34, 16, 11, 0.34);
+  text-shadow: 0 12px 28px rgba(34, 16, 11, 0.34), 0 0 16px rgba(255, 231, 220, 0.08);
 }
 
 .hero__script {
   margin: 0 auto 14px;
   max-width: 18ch;
   color: #ffece4;
-  font-family: "Marck Script", cursive;
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
   font-size: clamp(1.5rem, 6vw, 2.4rem);
   line-height: 1.2;
-  text-shadow: 0 6px 18px rgba(34, 16, 11, 0.22);
+  text-shadow: 0 6px 18px rgba(34, 16, 11, 0.22), 0 0 12px rgba(255, 231, 220, 0.08);
 }
 
 .hero__date {
@@ -362,6 +368,19 @@ textarea {
   max-width: 80%;
   font-size: 2rem;
   line-height: 1.2;
+}
+
+.detail-card {
+  position: relative;
+}
+
+.detail-card::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  margin-bottom: 14px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
 }
 
 .countdown-card {
@@ -462,6 +481,7 @@ textarea {
   overflow: hidden;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
+  position: relative;
   transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
@@ -475,6 +495,20 @@ textarea {
   object-fit: cover;
   aspect-ratio: 1;
   transition: transform 300ms ease;
+}
+
+.gallery-item figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 28px 16px 16px;
+  color: #fff7f1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  background: linear-gradient(180deg, rgba(33, 18, 13, 0), rgba(33, 18, 13, 0.76));
+  pointer-events: none;
 }
 
 .gallery-item:hover img,
@@ -529,6 +563,18 @@ textarea {
 .rsvp-form textarea:focus {
   border-color: rgba(215, 154, 162, 0.44);
   box-shadow: 0 0 0 4px rgba(215, 154, 162, 0.08);
+}
+
+.final-card {
+  background: linear-gradient(160deg, rgba(255, 247, 241, 0.98), rgba(245, 226, 220, 0.96));
+}
+
+.final-card::after {
+  content: "♡";
+  display: block;
+  margin-top: 18px;
+  color: var(--accent);
+  font-size: 1.1rem;
 }
 
 .toast {
