@@ -32,7 +32,7 @@ const gallery = [
 
 export default function GallerySection() {
   return (
-    <section className="section-shell bg-white/45" id="gallery">
+    <section className="section-shell bg-white/40" id="gallery">
       <div className="section-container">
         <Reveal className="text-center">
           <div className="divider mx-auto" aria-hidden="true" />
@@ -40,15 +40,15 @@ export default function GallerySection() {
           <h2 className="section-title mx-auto">Свет, нежность и детали нашего дня</h2>
         </Reveal>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-[1.2fr_0.8fr_1fr] md:auto-rows-[220px]">
+        <div className="mt-8 grid grid-cols-2 gap-4 md:grid-cols-[1.25fr_0.75fr_1fr] md:auto-rows-[230px]">
           {gallery.map((item) => (
             <Reveal key={item.src} className={`${item.wide ? 'col-span-2' : ''} ${item.tall ? 'md:col-start-3 md:row-span-2' : ''}`}>
-              <figure className="group relative overflow-hidden rounded-[22px] shadow-card transition hover:-translate-y-0.5 hover:shadow-glow">
+              <figure className="group relative overflow-hidden rounded-[22px] border border-white/70 shadow-card transition hover:-translate-y-0.5 hover:shadow-glow">
                 <img
                   src={item.src}
                   alt={item.alt}
                   loading="lazy"
-                  className={`w-full object-cover transition duration-300 group-hover:scale-[1.03] ${item.wide ? 'aspect-[1.3] md:h-[220px]' : item.tall ? 'aspect-[0.8] md:h-[456px]' : 'aspect-square md:h-[220px]'}`}
+                  className={`w-full object-cover transition duration-300 group-hover:scale-[1.03] ${item.wide ? 'aspect-[1.3] md:h-[230px]' : item.tall ? 'aspect-[0.8] md:h-[474px]' : 'aspect-square md:h-[230px]'}`}
                   width="1000"
                   height="1200"
                 />

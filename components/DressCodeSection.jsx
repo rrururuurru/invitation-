@@ -22,7 +22,7 @@ export default function DressCodeSection() {
           />
         </Reveal>
 
-        <Reveal className="card-soft">
+        <Reveal className="card-soft bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(232,240,247,0.52))]">
           <div className="divider" aria-hidden="true" />
           <p className="section-tag">Пожелания</p>
           <h2 className="section-title">Будем рады, если образы поддержат воздушную палитру нашего вечера</h2>
