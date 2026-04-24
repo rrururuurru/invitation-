@@ -20,7 +20,7 @@ export const metadata = {
     title: 'Азат & Аружана | Свадебное приглашение',
     description: 'С любовью приглашаем вас разделить с нами день, в котором начнётся наша новая семейная история.',
     images: [
-      'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80'
+      'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=1200&q=80'
     ]
   }
 }

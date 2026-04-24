@@ -22,6 +22,11 @@ export default function Hero() {
         <p className="font-heading mx-auto mb-4 max-w-[18ch] text-3xl italic leading-[1.2] text-white/90 drop-shadow-[0_8px_18px_rgba(15,20,30,0.2)] md:text-4xl">
           Приглашают вас на свою свадьбу
         </p>
+        <div className="mx-auto mb-5 flex items-center justify-center gap-3 text-white/80" aria-hidden="true">
+          <span className="h-px w-14 bg-white/35" />
+          <span className="text-sm">♡</span>
+          <span className="h-px w-14 bg-white/35" />
+        </div>
         <div className="mx-auto mb-6 inline-flex min-h-10 items-center rounded-full border border-white/35 bg-white/10 px-4 text-sm shadow-[inset_0_1px_0_rgba(255,255,255,0.16)]">
           25 августа 2026 • 17:00 • Астана
         </div>
