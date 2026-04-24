@@ -1,0 +1,21 @@
+<svg width="1000" height="1250" viewBox="0 0 1000 1250" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1000" height="1250" fill="#EDE0D5"/>
+  <rect width="1000" height="1250" fill="url(#paint0_linear_1_2)"/>
+  <circle cx="778" cy="242" r="198" fill="#D9BEAE" fill-opacity="0.62"/>
+  <circle cx="180" cy="924" r="226" fill="#F4E9E0" fill-opacity="0.82"/>
+  <path d="M0 880C140 794 252 764 404 774C602 788 770 886 1000 1120V1250H0V880Z" fill="#D0B19E" fill-opacity="0.42"/>
+  <path d="M256 742C325 586 430 492 502 492C574 492 679 586 748 742" stroke="#C29580" stroke-width="10" stroke-linecap="round"/>
+  <path d="M320 706C352 632 424 580 502 580C580 580 652 632 684 706" stroke="#E8D5C7" stroke-width="8" stroke-linecap="round"/>
+  <path d="M254 874C348 944 654 944 746 874" stroke="#AD7F69" stroke-width="9" stroke-linecap="round"/>
+  <path d="M148 304C176 272 202 258 228 258C256 258 286 274 316 310" stroke="#E6CBBB" stroke-width="8" stroke-linecap="round"/>
+  <path d="M698 990C732 950 766 930 800 930C838 930 872 954 902 996" stroke="#E6CBBB" stroke-width="8" stroke-linecap="round"/>
+  <text x="500" y="222" text-anchor="middle" fill="#FFF8F3" font-family="Georgia, serif" font-size="78">Азат &amp; Аружан</text>
+  <text x="500" y="1110" text-anchor="middle" fill="#8D6758" font-family="Arial, sans-serif" font-size="30">Замените на настоящее крупное фото пары для ещё более живого первого экрана</text>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="500" y1="0" x2="500" y2="1250" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#B58A74"/>
+      <stop offset="0.48" stop-color="#9B7463"/>
+      <stop offset="1" stop-color="#6D5246"/>
+    </linearGradient>
+  </defs>
+</svg>

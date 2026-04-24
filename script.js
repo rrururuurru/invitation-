@@ -11,15 +11,16 @@ const countdownValues = {
 };
 
 const revealItems = document.querySelectorAll(".reveal");
-const parallaxItems = document.querySelectorAll("[data-parallax]");
 const musicToggle = document.querySelector(".music-toggle");
 const audio = document.getElementById("wedding-audio");
 const rsvpForm = document.getElementById("rsvp-form");
 const toast = document.getElementById("toast");
+const progressBar = document.getElementById("scroll-progress");
 const mapLinkElement = document.querySelector('#details .text-link');
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 let toastTimer = null;
-let ticking = false;
+let isTicking = false;
 
 if (mapLinkElement) {
   mapLinkElement.href = mapLink;
@@ -36,8 +37,8 @@ function showToast(message) {
 }
 
 function updateCountdown() {
-  const now = new Date();
-  const diff = weddingDate.getTime() - now.getTime();
+  const now = Date.now();
+  const diff = weddingDate.getTime() - now;
 
   if (diff <= 0) {
     Object.values(countdownValues).forEach((item) => {
@@ -46,20 +47,20 @@ function updateCountdown() {
     return;
   }
 
-  const seconds = Math.floor(diff / 1000);
-  const days = Math.floor(seconds / (60 * 60 * 24));
-  const hours = Math.floor((seconds % (60 * 60 * 24)) / (60 * 60));
-  const minutes = Math.floor((seconds % (60 * 60)) / 60);
-  const secs = seconds % 60;
+  const totalSeconds = Math.floor(diff / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
 
   countdownValues.days.textContent = String(days);
   countdownValues.hours.textContent = String(hours).padStart(2, "0");
   countdownValues.minutes.textContent = String(minutes).padStart(2, "0");
-  countdownValues.seconds.textContent = String(secs).padStart(2, "0");
+  countdownValues.seconds.textContent = String(seconds).padStart(2, "0");
 }
 
 function setupRevealAnimation() {
-  if (!("IntersectionObserver" in window)) {
+  if (reduceMotion.matches || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
     return;
   }
@@ -74,7 +75,7 @@ function setupRevealAnimation() {
       });
     },
     {
-      threshold: 0.16,
+      threshold: 0.18,
       rootMargin: "0px 0px -8% 0px"
     }
   );
@@ -82,30 +83,27 @@ function setupRevealAnimation() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function applyParallax() {
-  const offset = window.scrollY;
-
-  parallaxItems.forEach((item) => {
-    const speed = Number(item.dataset.parallax) || 0;
-    item.style.transform = `translate3d(0, ${offset * speed}px, 0)`;
-  });
-
-  ticking = false;
+function updateScrollProgress() {
+  const scrollTop = window.scrollY;
+  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollableHeight > 0 ? Math.min(scrollTop / scrollableHeight, 1) : 0;
+  progressBar.style.width = `${progress * 100}%`;
+  isTicking = false;
 }
 
 function onScroll() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    return;
-  }
-
-  if (!ticking) {
-    window.requestAnimationFrame(applyParallax);
-    ticking = true;
+  if (!isTicking) {
+    window.requestAnimationFrame(updateScrollProgress);
+    isTicking = true;
   }
 }
 
 function setupMusic() {
   audio.src = musicFile;
+
+  audio.addEventListener("error", () => {
+    audio.removeAttribute("src");
+  });
 
   musicToggle.addEventListener("click", async () => {
     if (!audio.getAttribute("src")) {
@@ -142,7 +140,7 @@ function setupRsvpForm() {
     const comment = (formData.get("comment") || "").toString().trim();
 
     const messageParts = [
-      "Здравствуйте! Подтверждаю ответ на свадебное приглашение.",
+      "Здравствуйте! Отправляю ответ на свадебное приглашение.",
       `Имя: ${guestName}`,
       `Ответ: ${attendance}`
     ];
@@ -163,5 +161,6 @@ window.setInterval(updateCountdown, 1000);
 setupRevealAnimation();
 setupMusic();
 setupRsvpForm();
+updateScrollProgress();
 window.addEventListener("scroll", onScroll, { passive: true });
-window.addEventListener("load", applyParallax);
+window.addEventListener("resize", onScroll, { passive: true });
