@@ -1,7 +1,7 @@
 const weddingDate = new Date(2026, 7, 25, 18, 0, 0);
 const whatsappNumber = "77000000000";
 const mapLink = "https://2gis.kz/astana";
-const musicFile = "https://www.chosic.com/wp-content/uploads/2021/02/keys-of-moon-white-petals(chosic.com).mp3";
+const musicFile = "https://www.chosic.com/wp-content/uploads/2022/10/scott-buckley-moonlight(chosic.com).mp3";
 
 const countdownValues = {
   days: document.querySelector('[data-unit="days"]'),
@@ -102,7 +102,7 @@ function onScroll() {
 function setupMusic() {
   audio.src = musicFile;
   audio.preload = "metadata";
-  audio.volume = 0.35;
+  audio.volume = 0.3;
 
   audio.addEventListener("error", () => {
     audio.removeAttribute("src");
