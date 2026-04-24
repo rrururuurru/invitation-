@@ -22,6 +22,7 @@ const musicIcon = document.querySelector(".music-toggle__icon");
 
 let toastTimer = null;
 let isTicking = false;
+let musicFadeFrame = 0;
 
 if (mapLinkElement) {
   mapLinkElement.href = mapLink;
@@ -99,10 +100,38 @@ function onScroll() {
   }
 }
 
+function stopMusicFade() {
+  if (musicFadeFrame) {
+    window.cancelAnimationFrame(musicFadeFrame);
+    musicFadeFrame = 0;
+  }
+}
+
+function fadeInMusic(targetVolume, duration) {
+  stopMusicFade();
+
+  const startVolume = audio.volume;
+  const startTime = performance.now();
+
+  function step(now) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    audio.volume = startVolume + (targetVolume - startVolume) * progress;
+
+    if (progress < 1) {
+      musicFadeFrame = window.requestAnimationFrame(step);
+      return;
+    }
+
+    musicFadeFrame = 0;
+  }
+
+  musicFadeFrame = window.requestAnimationFrame(step);
+}
+
 function setupMusic() {
   audio.src = musicFile;
   audio.preload = "metadata";
-  audio.volume = 0.3;
+  audio.volume = 0.28;
 
   audio.addEventListener("error", () => {
     audio.removeAttribute("src");
@@ -123,7 +152,9 @@ function setupMusic() {
 
     if (audio.paused) {
       try {
+        audio.volume = 0;
         await audio.play();
+        fadeInMusic(0.28, 800);
         musicToggle.classList.add("is-playing");
         musicToggle.setAttribute("aria-pressed", "true");
         musicToggle.setAttribute("aria-label", "Пауза музыки");
@@ -134,7 +165,9 @@ function setupMusic() {
       return;
     }
 
+    stopMusicFade();
     audio.pause();
+    audio.volume = 0.28;
     musicToggle.classList.remove("is-playing");
     musicToggle.setAttribute("aria-pressed", "false");
     musicToggle.setAttribute("aria-label", "Включить музыку");

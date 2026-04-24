@@ -13,12 +13,12 @@
   --accent: #d7868f;
   --accent-warm: #d5a76d;
   --accent-deep: #9b614e;
-  --shadow-soft: 0 14px 34px rgba(90, 54, 40, 0.08);
-  --shadow-card: 0 22px 54px rgba(90, 54, 40, 0.12);
+  --shadow-soft: 0 10px 24px rgba(90, 54, 40, 0.07);
+  --shadow-card: 0 16px 38px rgba(90, 54, 40, 0.1);
   --radius-lg: 30px;
   --radius-md: 24px;
   --radius-sm: 18px;
-  --container: 1160px;
+  --container: 1100px;
 }
 
 * {
@@ -35,6 +35,8 @@ body {
   overflow-x: hidden;
   color: var(--text);
   font-family: "Manrope", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   background:
     radial-gradient(circle at 0% 0%, rgba(248, 227, 223, 0.8), transparent 25%),
     radial-gradient(circle at 100% 10%, rgba(244, 231, 213, 0.85), transparent 23%),
@@ -100,7 +102,6 @@ textarea {
   background: linear-gradient(180deg, rgba(255, 250, 246, 0.9), rgba(249, 232, 235, 0.92));
   color: var(--text);
   box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(8px);
   transition: transform 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -135,7 +136,7 @@ textarea {
 
 .section {
   position: relative;
-  padding: 72px 0;
+  padding: 64px 0;
 }
 
 .section-tag,
@@ -163,7 +164,7 @@ textarea {
 .section-title {
   font-size: clamp(2.4rem, 5vw, 4.6rem);
   max-width: 12ch;
-  line-height: 1.12;
+  line-height: 1.2;
 }
 
 .section-text,
@@ -389,7 +390,7 @@ textarea {
 }
 
 .hero__lead {
-  max-width: 40ch;
+  max-width: min(85%, 40ch);
   margin-bottom: 18px;
   color: rgba(255, 241, 233, 0.84);
 }
@@ -452,27 +453,8 @@ textarea {
 }
 
 .hero__petals {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+  display: none;
 }
-
-.hero__petals span {
-  position: absolute;
-  top: -10%;
-  width: 14px;
-  height: 22px;
-  border-radius: 60% 40% 58% 42%;
-  background: linear-gradient(180deg, #ffe3de, #eeb3bb);
-  opacity: 0.72;
-  animation: petalFall linear infinite;
-}
-
-.hero__petals span:nth-child(1) { left: 10%; animation-duration: 12s; }
-.hero__petals span:nth-child(2) { left: 28%; animation-duration: 16s; animation-delay: -5s; }
-.hero__petals span:nth-child(3) { left: 48%; animation-duration: 15s; animation-delay: -3s; }
-.hero__petals span:nth-child(4) { left: 70%; animation-duration: 14s; animation-delay: -8s; }
-.hero__petals span:nth-child(5) { left: 88%; animation-duration: 13s; animation-delay: -4s; }
 
 .section--intro {
   padding-top: 54px;
@@ -585,7 +567,7 @@ textarea {
 
 .details-composition {
   display: grid;
-  gap: 16px;
+  gap: 20px;
 }
 
 .details-feature {
@@ -627,7 +609,7 @@ textarea {
 
 .details-grid {
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .info-card {
@@ -664,7 +646,7 @@ textarea {
 
 .countdown-shell {
   display: grid;
-  gap: 18px;
+  gap: 24px;
   align-items: center;
 }
 
@@ -834,7 +816,7 @@ textarea {
 
 .gallery-grid {
   display: grid;
-  gap: 14px;
+  gap: 16px;
 }
 
 .gallery-card {
@@ -842,12 +824,12 @@ textarea {
   border-radius: 26px;
   background: rgba(255, 252, 248, 0.96);
   position: relative;
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
 .gallery-card:hover,
 .gallery-card:focus-within {
-  box-shadow: 0 22px 44px rgba(90, 54, 40, 0.16);
+  box-shadow: 0 16px 30px rgba(90, 54, 40, 0.12);
 }
 
 .gallery-card img {
@@ -997,7 +979,7 @@ textarea {
 
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition: transform 650ms ease, opacity 650ms ease;
 }
 
@@ -1011,13 +993,8 @@ textarea {
 }
 
 @keyframes heroZoom {
-  from { transform: scale(1.04); }
-  to { transform: scale(1.11); }
-}
-
-@keyframes petalFall {
-  0% { transform: translate3d(0, 0, 0) rotate(0deg); }
-  100% { transform: translate3d(-26px, 110vh, 0) rotate(220deg); }
+  from { transform: scale(1.06); }
+  to { transform: scale(1.12); }
 }
 
 @keyframes pulse {
@@ -1038,7 +1015,7 @@ textarea {
 
 @media (min-width: 760px) {
   .section {
-    padding: 96px 0;
+    padding: 88px 0;
   }
 
   .hero {
@@ -1134,14 +1111,6 @@ textarea {
 
   .gallery-card--hero img {
     height: 220px;
-  }
-
-  .gallery-card:nth-child(3) {
-    transform: translateY(22px);
-  }
-
-  .gallery-card:nth-child(4) {
-    transform: translateY(-14px);
   }
 
   .gallery-card--tall {
