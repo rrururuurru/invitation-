@@ -25,13 +25,28 @@ jobs:
       - name: Загрузка репозитория
         uses: actions/checkout@v4
 
+      - name: Установка Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Установка зависимостей
+        run: npm ci
+
+      - name: Сборка проекта
+        run: npm run build
+
+      - name: Создание файла nojekyll
+        run: touch out/.nojekyll
+
       - name: Настройка GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Подготовка артефакта
         uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: ./out
 
       - name: Публикация
         id: deployment

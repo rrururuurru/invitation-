@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+@layer components {
+  .font-heading {
+    font-family: var(--font-heading), serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), sans-serif;
+  }
+
+  .section-shell {
+    @apply px-4 py-14 md:py-20;
+  }
+
+  .section-container {
+    @apply mx-auto w-full max-w-[1000px];
+  }
+
+  .card-soft {
+    @apply rounded-[20px] border border-slateBlue/10 bg-white/90 p-5 shadow-card md:rounded-[24px] md:p-8;
+  }
+
+  .section-tag {
+    @apply mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-slateBlue;
+  }
+
+  .section-title {
+    @apply font-heading text-4xl leading-[1.2] text-ink md:text-5xl;
+    max-width: 80%;
+  }
+
+  .section-copy {
+    @apply text-[15px] leading-[1.9] text-ink/70;
+    max-width: 85%;
+  }
+
+  .divider {
+    @apply mb-4 h-[10px] w-[72px] border-b border-t border-slateBlue/15;
+    border-bottom-color: rgba(217, 197, 157, 0.55);
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-transparent bg-gradient-to-r from-slateBlue to-powderBlue px-6 text-sm font-semibold text-white shadow-glow transition hover:-translate-y-0.5 hover:shadow-card;
+  }
+
+  .button-secondary {
+    @apply inline-flex min-h-12 items-center justify-center rounded-full border border-white/35 bg-white/10 px-6 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/15;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 650ms ease, transform 650ms ease;
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title,
+  .section-copy {
+    max-width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
