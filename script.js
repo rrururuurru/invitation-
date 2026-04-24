@@ -1,4 +1,4 @@
-const weddingDate = new Date("2026-08-25T18:00:00+05:00");
+const weddingDate = new Date(Date.UTC(2026, 7, 25, 13, 0, 0));
 const whatsappNumber = "77000000000";
 const mapLink = "https://2gis.kz/astana";
 const musicFile = "./assets/music.mp3";
