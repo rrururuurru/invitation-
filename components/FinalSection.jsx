@@ -4,7 +4,7 @@ export default function FinalSection() {
   return (
     <section className="section-shell pt-10" id="final">
       <div className="section-container max-w-[840px]">
-        <Reveal className="card-soft text-center">
+        <Reveal className="card-soft text-center bg-white/82">
           <div className="divider mx-auto" aria-hidden="true" />
           <p className="section-tag">Финальный аккорд</p>
           <h2 className="section-title mx-auto">С любовью, Азат и Аружана</h2>

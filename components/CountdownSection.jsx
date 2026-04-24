@@ -47,7 +47,8 @@ export default function CountdownSection() {
           <p className="section-copy">Совсем скоро наступит день, который мы будем вспоминать с особенной нежностью. До встречи 25 августа 2026 года.</p>
         </Reveal>
 
-        <Reveal className="card-soft grid grid-cols-2 gap-3 md:grid-cols-4">
+        <Reveal className="rounded-[26px] border border-slateBlue/10 bg-white/70 p-4 shadow-card md:p-6">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
           {[
             ['дней', timeLeft.days],
             ['часов', timeLeft.hours],
@@ -59,6 +60,7 @@ export default function CountdownSection() {
               <span className="mt-1 block text-xs text-ink/60 md:text-sm">{label}</span>
             </div>
           ))}
+          </div>
         </Reveal>
       </div>
     </section>

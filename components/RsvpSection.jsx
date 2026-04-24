@@ -36,7 +36,7 @@ export default function RsvpSection() {
         </Reveal>
 
         <Reveal>
-          <form onSubmit={onSubmit} className="card-soft grid gap-4">
+          <form onSubmit={onSubmit} className="card-soft grid gap-4 bg-white/82">
             <label className="grid gap-2">
               <span className="text-sm font-semibold text-ink">Ваше имя</span>
               <input className="rounded-2xl border border-slateBlue/15 bg-white px-4 py-3 text-sm text-ink outline-none transition focus:border-slateBlue/45 focus:ring-4 focus:ring-slateBlue/10" type="text" name="guestName" placeholder="Например, Айгерим" required />

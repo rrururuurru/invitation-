@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -25,15 +27,15 @@
 
 @layer components {
   .font-heading {
-    font-family: var(--font-heading), serif;
+    font-family: 'Cormorant Garamond', serif;
   }
 
   .font-body {
-    font-family: var(--font-body), sans-serif;
+    font-family: 'Montserrat', sans-serif;
   }
 
   .section-shell {
-    @apply px-4 py-14 md:py-20;
+    @apply px-4 py-16 md:py-24;
   }
 
   .section-container {
@@ -41,7 +43,7 @@
   }
 
   .card-soft {
-    @apply rounded-[20px] border border-slateBlue/10 bg-white/90 p-5 shadow-card md:rounded-[24px] md:p-8;
+    @apply rounded-[24px] border border-slateBlue/10 bg-white/85 p-5 shadow-card md:p-8;
   }
 
   .section-tag {
@@ -49,18 +51,28 @@
   }
 
   .section-title {
-    @apply font-heading text-4xl leading-[1.2] text-ink md:text-5xl;
+    @apply font-heading text-4xl leading-[1.22] text-ink md:text-5xl;
     max-width: 80%;
   }
 
   .section-copy {
-    @apply text-[15px] leading-[1.9] text-ink/70;
+    @apply text-[15px] leading-[2] text-ink/75;
     max-width: 85%;
   }
 
   .divider {
-    @apply mb-4 h-[10px] w-[72px] border-b border-t border-slateBlue/15;
+    @apply mb-5 h-[10px] w-[92px] border-b border-t border-slateBlue/15;
     border-bottom-color: rgba(217, 197, 157, 0.55);
+  }
+
+  .ornament-line {
+    @apply mx-auto flex items-center justify-center gap-3 text-slateBlue/70;
+  }
+
+  .ornament-line::before,
+  .ornament-line::after {
+    content: '';
+    @apply h-px w-16 bg-gradient-to-r from-transparent via-slateBlue/30 to-transparent;
   }
 
   .button-primary {

@@ -21,7 +21,7 @@ const details = [
 
 export default function DetailsSection() {
   return (
-    <section className="section-shell bg-white/45" id="details">
+    <section className="section-shell bg-white/40" id="details">
       <div className="section-container">
         <Reveal className="text-center">
           <div className="divider mx-auto" aria-hidden="true" />
@@ -29,14 +29,14 @@ export default function DetailsSection() {
           <h2 className="section-title mx-auto">Красивый вечер в сердце Астаны</h2>
         </Reveal>
 
-        <div className="mt-8 grid gap-4 md:grid-cols-3 md:gap-5">
+        <div className="mt-8 grid gap-4 md:mx-auto md:max-w-[860px] md:grid-cols-2 md:gap-5">
           {details.map((item) => (
             <Reveal key={item.title}>
-              <article className="card-soft h-full">
-                <div className="mb-4 h-[2px] w-11 bg-gradient-to-r from-slateBlue to-goldSoft" />
+              <article className={`card-soft h-full ${item.title === 'Настроение' ? 'md:col-span-2 md:text-center' : ''}`}>
+                <div className={`mb-4 h-[2px] w-11 bg-gradient-to-r from-slateBlue to-goldSoft ${item.title === 'Настроение' ? 'md:mx-auto' : ''}`} />
                 <p className="section-tag">{item.title}</p>
-                <h3 className="font-heading mb-3 max-w-[80%] text-[2rem] leading-[1.2] text-ink">{item.headline}</h3>
-                <p className="section-copy">{item.copy}</p>
+                <h3 className={`font-heading mb-3 text-[2rem] leading-[1.2] text-ink ${item.title === 'Настроение' ? 'mx-auto max-w-[60%]' : 'max-w-[80%]'}`}>{item.headline}</h3>
+                <p className={`section-copy ${item.title === 'Настроение' ? 'mx-auto' : ''}`}>{item.copy}</p>
                 {item.link ? (
                   <a className="mt-4 inline-flex text-sm font-semibold text-slateBlue transition hover:text-ink" href={item.link} target="_blank" rel="noreferrer">
                     Открыть карту

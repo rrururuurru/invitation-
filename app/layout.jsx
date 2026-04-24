@@ -1,17 +1,4 @@
-import { Playfair_Display, Montserrat } from 'next/font/google'
 import './globals.css'
-
-const headingFont = Playfair_Display({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-heading',
-  display: 'swap'
-})
-
-const bodyFont = Montserrat({
-  subsets: ['latin', 'cyrillic'],
-  variable: '--font-body',
-  display: 'swap'
-})
 
 export const metadata = {
   title: 'Азат & Аружана | Свадебное приглашение',
@@ -28,7 +15,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="ru" className="scroll-smooth">
-      <body className={`${headingFont.variable} ${bodyFont.variable} bg-soft-radial font-body text-ink antialiased`}>
+      <body className="bg-soft-radial font-body text-ink antialiased">
         {children}
       </body>
     </html>

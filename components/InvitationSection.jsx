@@ -10,7 +10,8 @@ export default function InvitationSection() {
           <h2 className="section-title mx-auto">Будем счастливы разделить этот день в кругу самых близких и дорогих людей</h2>
         </Reveal>
 
-        <Reveal className="card-soft mt-6 text-center md:mt-8">
+        <Reveal className="mt-8 text-center md:mt-10">
+          <div className="ornament-line mb-6" aria-hidden="true"><span className="text-sm">♡</span></div>
           <p className="section-copy mx-auto">
             С нежностью и благодарностью приглашаем вас стать частью дня, который навсегда останется в нашей памяти. Для нас особенно важно встретить этот вечер рядом с теми, кто умеет искренне радоваться, бережно хранить тёплые моменты и быть рядом сердцем.
           </p>
