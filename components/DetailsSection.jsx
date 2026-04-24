@@ -32,13 +32,14 @@ export default function DetailsSection() {
         <div className="mt-8 grid gap-4 md:mx-auto md:max-w-[860px] md:grid-cols-2 md:gap-5">
           {details.map((item) => (
             <Reveal key={item.title}>
-              <article className={`card-soft h-full ${item.title === 'Настроение' ? 'md:col-span-2 md:text-center' : ''} ${item.title === 'Место' ? 'bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(232,240,247,0.72))]' : item.title === 'Дата и время' ? 'bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(245,239,231,0.8))]' : 'bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(238,245,249,0.74))]'}`}>
+              <article className={`card-soft card-glow h-full ${item.title === 'Настроение' ? 'md:col-span-2 md:text-center' : ''} ${item.title === 'Место' ? 'bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(232,240,247,0.72))]' : item.title === 'Дата и время' ? 'bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(245,239,231,0.8))]' : 'bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(238,245,249,0.74))]'}`}>
                 <div className={`mb-4 h-[2px] w-11 bg-gradient-to-r from-slateBlue to-goldSoft ${item.title === 'Настроение' ? 'md:mx-auto' : ''}`} />
                 <p className="section-tag">{item.title}</p>
                 <h3 className={`font-heading mb-3 text-[2rem] leading-[1.2] text-ink ${item.title === 'Настроение' ? 'mx-auto max-w-[60%]' : 'max-w-[80%]'}`}>{item.headline}</h3>
                 <p className={`section-copy ${item.title === 'Настроение' ? 'mx-auto' : ''}`}>{item.copy}</p>
                 {item.link ? (
-                  <a className="mt-4 inline-flex text-sm font-semibold text-slateBlue transition hover:text-ink" href={item.link} target="_blank" rel="noreferrer">
+                  <a className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-slateBlue transition hover:text-ink" href={item.link} target="_blank" rel="noreferrer">
+                    <span className="text-base">⌂</span>
                     Открыть карту
                   </a>
                 ) : null}

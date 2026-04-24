@@ -17,6 +17,11 @@
   body {
     margin: 0;
     overflow-x: hidden;
+    background:
+      radial-gradient(circle at 12% 10%, rgba(210, 225, 239, 0.85), transparent 22%),
+      radial-gradient(circle at 88% 14%, rgba(244, 229, 207, 0.72), transparent 18%),
+      radial-gradient(circle at 50% 42%, rgba(232, 239, 246, 0.68), transparent 26%),
+      linear-gradient(180deg, #fcfefd 0%, #f4f8fb 44%, #eef3f8 100%);
   }
 
   img {
@@ -47,6 +52,18 @@
     backdrop-filter: blur(6px);
   }
 
+  .card-glow {
+    @apply relative overflow-hidden;
+  }
+
+  .card-glow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(217, 197, 157, 0.12), transparent 30%);
+    pointer-events: none;
+  }
+
   .section-tag {
     @apply mb-3 text-[11px] font-semibold uppercase tracking-[0.28em] text-slateBlue;
   }
@@ -60,6 +77,21 @@
   .section-copy {
     @apply text-[15px] leading-[2] text-ink/75;
     max-width: 85%;
+  }
+
+  .floating-blur {
+    @apply pointer-events-none absolute rounded-full blur-3xl;
+    background: radial-gradient(circle, rgba(196, 214, 231, 0.42), transparent 68%);
+  }
+
+  .soft-ornament {
+    @apply mx-auto flex items-center justify-center gap-4 text-slateBlue/70;
+  }
+
+  .soft-ornament::before,
+  .soft-ornament::after {
+    content: '';
+    @apply h-px w-20 bg-gradient-to-r from-transparent via-slateBlue/25 to-transparent;
   }
 
   .divider {
@@ -95,6 +127,21 @@
   .reveal.is-visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .fade-card {
+    animation: floatSoft 9s ease-in-out infinite;
+  }
+}
+
+@keyframes floatSoft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
   }
 }
 
