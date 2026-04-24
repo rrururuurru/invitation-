@@ -11,18 +11,18 @@ const countdownValues = {
 };
 
 const revealItems = document.querySelectorAll(".reveal");
-const musicToggle = document.querySelector(".music-toggle");
+const progressBar = document.getElementById("scroll-progress");
+const musicButton = document.querySelector(".music-button");
+const musicIcon = document.querySelector(".music-button__icon");
 const audio = document.getElementById("wedding-audio");
 const rsvpForm = document.getElementById("rsvp-form");
 const toast = document.getElementById("toast");
-const progressBar = document.getElementById("scroll-progress");
-const mapLinkElement = document.querySelector('#details .text-link');
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-const musicIcon = document.querySelector(".music-toggle__icon");
+const mapLinkElement = document.querySelector('#details .text-link');
 
-let toastTimer = null;
-let isTicking = false;
-let musicFadeFrame = 0;
+let toastTimer = 0;
+let scrollFrame = 0;
+let fadeFrame = 0;
 
 if (mapLinkElement) {
   mapLinkElement.href = mapLink;
@@ -35,7 +35,7 @@ function showToast(message) {
 
   toastTimer = window.setTimeout(() => {
     toast.classList.remove("is-visible");
-  }, 2400);
+  }, 2200);
 }
 
 function updateCountdown() {
@@ -61,7 +61,7 @@ function updateCountdown() {
   countdownValues.seconds.textContent = String(seconds).padStart(2, "0");
 }
 
-function setupRevealAnimation() {
+function setupReveal() {
   if (reduceMotion.matches || !("IntersectionObserver" in window)) {
     revealItems.forEach((item) => item.classList.add("is-visible"));
     return;
@@ -77,7 +77,7 @@ function setupRevealAnimation() {
       });
     },
     {
-      threshold: 0.18,
+      threshold: 0.16,
       rootMargin: "0px 0px -8% 0px"
     }
   );
@@ -85,68 +85,61 @@ function setupRevealAnimation() {
   revealItems.forEach((item) => observer.observe(item));
 }
 
-function updateScrollProgress() {
+function updateProgress() {
   const scrollTop = window.scrollY;
-  const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = scrollableHeight > 0 ? Math.min(scrollTop / scrollableHeight, 1) : 0;
+  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = maxScroll > 0 ? Math.min(scrollTop / maxScroll, 1) : 0;
+
   progressBar.style.width = `${progress * 100}%`;
-  isTicking = false;
+  scrollFrame = 0;
 }
 
 function onScroll() {
-  if (!isTicking) {
-    window.requestAnimationFrame(updateScrollProgress);
-    isTicking = true;
+  if (!scrollFrame) {
+    scrollFrame = window.requestAnimationFrame(updateProgress);
   }
 }
 
-function stopMusicFade() {
-  if (musicFadeFrame) {
-    window.cancelAnimationFrame(musicFadeFrame);
-    musicFadeFrame = 0;
+function stopFade() {
+  if (fadeFrame) {
+    window.cancelAnimationFrame(fadeFrame);
+    fadeFrame = 0;
   }
 }
 
-function fadeInMusic(targetVolume, duration) {
-  stopMusicFade();
+function fadeInAudio(targetVolume, duration) {
+  stopFade();
 
-  const startVolume = audio.volume;
-  const startTime = performance.now();
+  const start = performance.now();
+  const initial = audio.volume;
 
   function step(now) {
-    const progress = Math.min((now - startTime) / duration, 1);
-    audio.volume = startVolume + (targetVolume - startVolume) * progress;
+    const progress = Math.min((now - start) / duration, 1);
+    audio.volume = initial + (targetVolume - initial) * progress;
 
     if (progress < 1) {
-      musicFadeFrame = window.requestAnimationFrame(step);
+      fadeFrame = window.requestAnimationFrame(step);
       return;
     }
 
-    musicFadeFrame = 0;
+    fadeFrame = 0;
   }
 
-  musicFadeFrame = window.requestAnimationFrame(step);
+  fadeFrame = window.requestAnimationFrame(step);
 }
 
 function setupMusic() {
   audio.src = musicFile;
   audio.preload = "metadata";
-  audio.volume = 0.28;
+  audio.volume = 0.3;
 
   audio.addEventListener("error", () => {
     audio.removeAttribute("src");
   });
 
-  audio.addEventListener("ended", () => {
-    musicToggle.classList.remove("is-playing");
-    musicToggle.setAttribute("aria-pressed", "false");
-    musicToggle.setAttribute("aria-label", "Включить музыку");
-    musicIcon.textContent = "▶";
-  });
-
-  musicToggle.addEventListener("click", async () => {
+  musicButton.addEventListener("click", async () => {
     if (!audio.getAttribute("src")) {
-      showToast("Музыкальный файл пока недоступен");
+      showToast("Музыка сейчас недоступна");
       return;
     }
 
@@ -154,10 +147,10 @@ function setupMusic() {
       try {
         audio.volume = 0;
         await audio.play();
-        fadeInMusic(0.28, 800);
-        musicToggle.classList.add("is-playing");
-        musicToggle.setAttribute("aria-pressed", "true");
-        musicToggle.setAttribute("aria-label", "Пауза музыки");
+        fadeInAudio(0.3, 700);
+        musicButton.classList.add("is-playing");
+        musicButton.setAttribute("aria-pressed", "true");
+        musicButton.setAttribute("aria-label", "Пауза музыки");
         musicIcon.textContent = "❚❚";
       } catch (error) {
         showToast("Не удалось включить музыку");
@@ -165,46 +158,45 @@ function setupMusic() {
       return;
     }
 
-    stopMusicFade();
+    stopFade();
     audio.pause();
-    audio.volume = 0.28;
-    musicToggle.classList.remove("is-playing");
-    musicToggle.setAttribute("aria-pressed", "false");
-    musicToggle.setAttribute("aria-label", "Включить музыку");
+    audio.volume = 0.3;
+    musicButton.classList.remove("is-playing");
+    musicButton.setAttribute("aria-pressed", "false");
+    musicButton.setAttribute("aria-label", "Включить музыку");
     musicIcon.textContent = "▶";
   });
 }
 
-function setupRsvpForm() {
+function setupRsvp() {
   rsvpForm.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const formData = new FormData(rsvpForm);
-    const guestName = (formData.get("guestName") || "").toString().trim();
-    const attendance = (formData.get("attendance") || "").toString().trim();
-    const comment = (formData.get("comment") || "").toString().trim();
+    const guestName = String(formData.get("guestName") || "").trim();
+    const attendance = String(formData.get("attendance") || "").trim();
+    const comment = String(formData.get("comment") || "").trim();
 
-    const messageParts = [
+    const messageLines = [
       "Здравствуйте! Отправляю ответ на свадебное приглашение.",
       `Имя: ${guestName}`,
       `Ответ: ${attendance}`
     ];
 
     if (comment) {
-      messageParts.push(`Комментарий: ${comment}`);
+      messageLines.push(`Комментарий: ${comment}`);
     }
 
-    const message = encodeURIComponent(messageParts.join("\n"));
-    const url = `https://wa.me/${whatsappNumber}?text=${message}`;
-    window.open(url, "_blank", "noopener");
+    const message = encodeURIComponent(messageLines.join("\n"));
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank", "noopener");
   });
 }
 
 updateCountdown();
 window.setInterval(updateCountdown, 1000);
-setupRevealAnimation();
+setupReveal();
 setupMusic();
-setupRsvpForm();
-updateScrollProgress();
+setupRsvp();
+updateProgress();
 window.addEventListener("scroll", onScroll, { passive: true });
 window.addEventListener("resize", onScroll, { passive: true });
