@@ -161,7 +161,8 @@ textarea {
 
 .section-title {
   font-size: clamp(2.4rem, 5vw, 4.6rem);
-  line-height: 0.97;
+  max-width: 12ch;
+  line-height: 1.12;
 }
 
 .section-text,
@@ -174,8 +175,36 @@ textarea {
 .final-card p {
   margin: 0;
   color: var(--text-soft);
-  line-height: 1.72;
+  line-height: 1.8;
   font-size: 0.98rem;
+}
+
+.invitation-copy,
+.countdown-copy,
+.program-copy,
+.rsvp-side,
+.details-feature__content,
+.letter-card,
+.quote-card,
+.info-card,
+.timeline__item,
+.dresscode-card,
+.rsvp-form,
+.final-card {
+  --copy-width: 34rem;
+}
+
+.section-text,
+.letter-card p,
+.details-feature p,
+.info-card p,
+.timeline__content p,
+.quote-card__sign,
+.final-card p,
+.rsvp-side .section-text,
+.countdown-copy .section-text,
+.program-copy .section-text {
+  max-width: min(100%, var(--copy-width));
 }
 
 .button {
@@ -293,7 +322,7 @@ textarea {
   right: 16px;
   bottom: 16px;
   z-index: 2;
-  padding: 22px 18px;
+  padding: 24px 22px;
   border: 1px solid rgba(255, 237, 228, 0.26);
   border-radius: 28px;
   background: linear-gradient(180deg, rgba(175, 95, 110, 0.08), rgba(71, 39, 29, 0.22));
@@ -326,7 +355,8 @@ textarea {
   margin-bottom: 10px;
   color: #fff8f4;
   font-size: clamp(3.6rem, 14vw, 7rem);
-  line-height: 0.86;
+  max-width: 7ch;
+  line-height: 1.04;
   text-shadow: 0 8px 28px rgba(44, 22, 16, 0.34);
 }
 
@@ -339,7 +369,8 @@ textarea {
   color: #ffece4;
   font-family: "Marck Script", cursive;
   font-size: clamp(1.6rem, 7vw, 2.7rem);
-  line-height: 1.1;
+  max-width: 18ch;
+  line-height: 1.2;
   text-shadow: 0 6px 20px rgba(44, 22, 16, 0.2);
 }
 
@@ -520,7 +551,8 @@ textarea {
   margin: 0 0 16px;
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(2rem, 6vw, 3.2rem);
-  line-height: 0.98;
+  max-width: 12ch;
+  line-height: 1.12;
   color: var(--text);
 }
 
@@ -564,12 +596,14 @@ textarea {
 }
 
 .details-feature__content {
-  padding: 22px 20px;
+  padding: 28px 24px;
 }
 
 .details-feature h3 {
   font-size: 2.6rem;
-  line-height: 0.92;
+  max-width: 9ch;
+  line-height: 1.12;
+  margin-bottom: 12px;
 }
 
 .details-grid {
@@ -578,7 +612,7 @@ textarea {
 }
 
 .info-card {
-  padding: 22px 18px;
+  padding: 28px 24px;
   transition: transform 180ms ease, border-color 180ms ease;
 }
 
@@ -597,7 +631,9 @@ textarea {
 .info-card h3,
 .timeline__content h3 {
   font-size: 2rem;
-  line-height: 0.95;
+  max-width: 11ch;
+  line-height: 1.18;
+  margin-bottom: 10px;
 }
 
 .section--countdown {
@@ -617,12 +653,12 @@ textarea {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
-  padding: 14px;
+  padding: 20px;
   background: linear-gradient(180deg, rgba(255, 251, 247, 0.96), rgba(247, 233, 226, 0.94));
 }
 
 .countdown__item {
-  padding: 18px 10px;
+  padding: 22px 14px;
   text-align: center;
   border-radius: 22px;
   background: rgba(255, 252, 248, 0.96);
@@ -652,7 +688,7 @@ textarea {
   position: relative;
   display: grid;
   gap: 12px;
-  padding: 16px;
+  padding: 20px;
   background: linear-gradient(180deg, rgba(255, 251, 248, 0.96), rgba(249, 236, 227, 0.94));
 }
 
@@ -670,7 +706,7 @@ textarea {
   position: relative;
   display: grid;
   gap: 12px;
-  padding: 16px 16px 16px 50px;
+  padding: 24px 22px 24px 58px;
   border-radius: 24px;
   background: rgba(255, 252, 248, 0.92);
   border: 1px solid rgba(123, 79, 58, 0.08);
@@ -727,7 +763,7 @@ textarea {
 }
 
 .dresscode-card {
-  padding: 26px 20px;
+  padding: 30px 26px;
   background: linear-gradient(180deg, rgba(255, 250, 246, 0.96), rgba(246, 225, 233, 0.96));
 }
 
@@ -834,7 +870,7 @@ textarea {
 
 .rsvp-side,
 .rsvp-form {
-  padding: 24px 20px;
+  padding: 30px 26px;
   background: linear-gradient(180deg, rgba(255, 252, 248, 0.96), rgba(249, 235, 229, 0.94));
 }
 
@@ -878,9 +914,18 @@ textarea {
 }
 
 .final-card {
-  padding: 34px 24px;
+  padding: 38px 30px;
   text-align: center;
   background: linear-gradient(160deg, rgba(255, 247, 241, 0.98), rgba(246, 228, 220, 0.95));
+}
+
+.final-card .section-title,
+.section-head--center .section-title,
+.rsvp-side .section-title,
+.countdown-copy .section-title,
+.program-copy .section-title {
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .final-card::before {
@@ -985,7 +1030,20 @@ textarea {
     right: auto;
     bottom: 30px;
     max-width: 620px;
-    padding: 28px 26px;
+    padding: 34px 32px;
+  }
+
+  .letter-card,
+  .quote-card,
+  .info-card,
+  .dresscode-card,
+  .rsvp-side,
+  .rsvp-form {
+    padding: 34px 32px;
+  }
+
+  .details-feature__content {
+    padding: 36px 34px;
   }
 
   .invitation-layout {
@@ -1010,11 +1068,11 @@ textarea {
 
   .countdown {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding: 18px;
+    padding: 22px;
   }
 
   .timeline {
-    padding: 18px;
+    padding: 22px;
   }
 
   .timeline__item {
@@ -1075,6 +1133,56 @@ textarea {
 }
 
 @media (max-width: 759px) {
+  .section-title {
+    max-width: 100%;
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 1.2;
+  }
+
+  .section-text,
+  .letter-card p,
+  .details-feature p,
+  .info-card p,
+  .timeline__content p,
+  .quote-card__sign,
+  .final-card p,
+  .hero__lead,
+  .hero__script,
+  .quote-card__text {
+    max-width: 100%;
+  }
+
+  .hero__panel,
+  .letter-card,
+  .quote-card,
+  .details-feature__content,
+  .info-card,
+  .countdown,
+  .timeline,
+  .dresscode-card,
+  .rsvp-side,
+  .rsvp-form,
+  .final-card {
+    padding: 20px;
+  }
+
+  .timeline__item {
+    padding: 20px 18px 20px 54px;
+  }
+
+  .countdown__item {
+    padding: 18px 12px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    line-height: 1;
+  }
+
+  .hero__script {
+    line-height: 1.15;
+  }
+
   .hero__petals {
     display: none;
   }
